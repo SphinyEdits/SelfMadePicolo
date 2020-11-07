@@ -1,0 +1,30 @@
+body{
+    position: absolute;
+    font-family: Verdana;
+    background-color: cornflowerblue;
+    font-size: 14px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.websiteTitle{
+    background-color: red;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.categoryDiv{
+    background-color: white;
+    padding: 10px;
+}
+
+.addPlayersDiv{
+    background-color: white;
+    padding: 10px;
+}
+
+.currentPlayersDiv{
+    background-color: white;
+    padding: 10px;
+}
+

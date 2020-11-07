@@ -3,13 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welkom bij Rob's versie van Picolo</title>
+    <meta name="HandheldFriendly" content="true"/> 
+    <title>Picolo site made by Rob</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
     <script src="./assets/js/app.js"></script>
-    <h1>Hello There</h1>
-    <p>Welkom bij deze test</p>
-    <p>Deze pagina wordt helemaal loco loco</p>
+        <main>
+            <h1 class="websiteTitle">Lets play some Picolo!</h1>
+            <!--4 Categories-->
+            <div class="categoryDiv">
+                <p>
+                    There are 4 Categories: <br>
+                    Virus, Challange, Imitations and Choose(A or B).
+                </p>
+            </div>
+            <!--Input players names-->
+            <div class="addPlayersDiv">
+                <h2 class="addPlayers">
+                    Add players
+                </h2>
+                <form action="#">
+                    <label for="Naam"></label>
+                    <input type="text" name="nameInput" id="nameInput" />
+                    <button type="submit" id="nameInputButton">Add name</button>
+                    <button type="reset" id="deleteButton">Delete input</button>
+                </form>
+            </div>
+            <!--Shows current players-->
+            <div class="currentPlayersDiv">
+                <h2 class="currentPlayers">current players:</h2>
+                <p id="playerList"></p>
+            </div>
+        
+        </main>
 </body>
 </html>
