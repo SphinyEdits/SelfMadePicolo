@@ -133,6 +133,6 @@ function writeGameToDom(){
     document.getElementById("gameDiv").innerHTML = " ";
     const p = document.createElement("p");
     const currentDiv = document.getElementById("gameDiv");
-    p.textContent("hoi");
+    p.textContent = `${randomChosenName}`;
     currentDiv.appendChild(p);
 }

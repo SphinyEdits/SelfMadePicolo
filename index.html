@@ -17,6 +17,13 @@
                     There are 4 Categories: <br>
                     Virus, Challange, Imitations and Choose(A or B).
                 </p>
+                <p>
+                    Add the playernames, their will be randomly picked a name that has 1 of the 4 categories. <br>
+                    Press start first and follow with the Next button. <br>
+                    The amount of sips will be shown in the text. <br>
+                    The game is programmed so the player can't be twice in a row. <br>
+                    
+                </p>
             </div>
     <!--Input players names-->
             <div class="addPlayersDiv">
@@ -26,8 +33,8 @@
                 <form action="#">
                     <label for="Naam"></label>
                     <input type="text" name="nameInput" id="nameInput" />
-                    <button type="submit" id="nameInputButton">Add name</button>
-                    <button type="reset" id="deleteButton">Delete input</button>
+                    <button type="submit" id="nameInputButton" class="button">Add name</button>
+                    <button type="reset" id="deleteButton" class="button">Delete input</button>
                 </form>
             </div>
     <!--Shows current players-->
@@ -35,11 +42,14 @@
                 <h2 class="currentPlayers">current players:</h2>
                 <p id="playerList"></p>
             </div>
-    <!--Output + next button-->
-            <div class="ouputdiv" id="gameDiv">
-                <button type="submit" id="startButton">Start game</button>
-                <button type="submit" id="nextButton">Next</button>
+    <!--Start + Next Buttons-->
+            <div class="startNextDiv">
                 <h3>Game Time!</h3>
+                <button type="submit" id="startButton" class="button">Start game</button>
+                <button type="submit" id="nextButton" class="button">Next</button>
+            </div>
+            <!--Output div-->
+            <div class="outputDiv" id="gameDiv">
             </div>
         </main>
 </body>
