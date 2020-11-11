@@ -18,6 +18,9 @@ function init(event){
 }
 
 const names = [];
+let randomChosenName;
+let spareNameForNextRound = [];
+
 
 const virusArray = [
     " doe jumping jacks tot het weer jouw beurt is.",
@@ -28,12 +31,38 @@ const virusArray = [
     " praat met een accent naar keuze van de medespelers.",
     " vanavond drink jij met de tegenovergestelde hand anders 2 slokken.",
     " hou jij het vol om 1 uur lang niet te lachen? ja, deel een atje uit. Nee, neem zelf 3 slokken.",
-    " iedere keer als je linker buurman een slok neemt neem jij hetzelfde aantal slokken doe dit 4x"
+    " iedere keer als je linker buurman een slok neemt neem jij hetzelfde aantal slokken doe dit 4 beurten."
 ];
 
-const challangeArray =  [];
-const imitationsArray = [];
-const chooseOptionsArray = [];
+const challangeArray =  [
+    "ruik iedereen zijn oksels en rank iedereen.",
+    "laat iemand een tatoeage op je onderarm tekenen.",
+    "kies een deelnemer uit en doe een seks positie.",
+    "rank iedereen op uiterlijk.",
+    "maak 3 grappen.",
+    "kies een drinking buddy. (kan niet geweigerd worden).",
+    "Immiteer een kreun geluid.",
+    `Doe steen papier schaar voor een atje (best of 3) tegen ${spareNameForNextRound[0]}.`
+];
+
+const imitationsArray = [
+    "imiteer een clown.",
+    "imiteer een meme.",
+    "imiteer een dino.",
+    "kies een medespeler en imiteer deze.",
+    "imiteer een dier naar keuze.",
+    "imiteer een bekend persoon naar keuze."
+];
+
+const chooseOptionsArray = [
+    `${randomChosenName} of ${spareNameForNextRound[0]}, met wie zou je eerder het bed in duiken`,
+    "Paddo of XTC",
+    "Iemand van hetzelfde geslacht zoenen of de persoon links van je",
+    "Oud en nieuw vieren of een festival",
+    "Brain or beauty",
+    "Heb je liever een broer of een zus",
+    "One night stand met iemand uit de groep of de groep 20 jaar niet meer zien"
+];
 
 /**
  * Function that handles the button add name
@@ -98,14 +127,13 @@ function nextButtonHandler(event){
     event.preventDefault();
     //console.log(event);
     chooseRandomName();
+    ChooseRandomCategory();
     writeGameToDom();
 }
 
 /**
  * Function that chooses a random name of the names array
  */
-let randomChosenName;
-let spareNameForNextRound = [];
 function chooseRandomName(){
     randomChosenName = names[Math.floor(Math.random()*names.length)];
     console.log(randomChosenName);
@@ -129,10 +157,22 @@ function blocksRepitition(){
     }
 }
 
+const Categories = [virusArray, challangeArray, imitationsArray, chooseOptionsArray];
+let categoryIndex;
+/**
+ * Function to choose random array + random index of array
+ */
+function ChooseRandomCategory() {
+    let selectedArray = Categories[Math.floor(Math.random()* Categories.length)];
+    //console.log(selectedArray);
+    categoryIndex = selectedArray[Math.floor(Math.random()* selectedArray.length)];
+    //console.log(categoryIndex);
+}
+
 function writeGameToDom(){
     document.getElementById("gameDiv").innerHTML = " ";
     const p = document.createElement("p");
     const currentDiv = document.getElementById("gameDiv");
-    p.textContent = `${randomChosenName}`;
+    p.textContent = `${randomChosenName} ${categoryIndex}`;
     currentDiv.appendChild(p);
 }
