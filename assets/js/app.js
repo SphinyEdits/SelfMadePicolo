@@ -22,6 +22,7 @@ let randomChosenName;
 let spareNameForNextRound = [];
 
 
+
 const virusArray = [
     " doe jumping jacks tot het weer jouw beurt is.",
     " mag niet meer praten, tot iedereen een slok heeft gedronken.",
@@ -42,7 +43,7 @@ const challangeArray =  [
     "maak 3 grappen.",
     "kies een drinking buddy. (kan niet geweigerd worden).",
     "Immiteer een kreun geluid.",
-    `Doe steen papier schaar voor een atje (best of 3) tegen ${spareNameForNextRound[0]}.`
+    `Doe steen papier schaar voor een atje (best of 3) tegen de persoon links van je.`
 ];
 
 const imitationsArray = [
@@ -55,9 +56,8 @@ const imitationsArray = [
 ];
 
 const chooseOptionsArray = [
-    `${randomChosenName} of ${spareNameForNextRound[0]}, met wie zou je eerder het bed in duiken`,
     "Paddo of XTC",
-    "Iemand van hetzelfde geslacht zoenen of de persoon links van je",
+    "Iemand van hetzelfde geslacht zoenen of seks met 1 van je leraren",
     "Oud en nieuw vieren of een festival",
     "Brain or beauty",
     "Heb je liever een broer of een zus",
@@ -128,7 +128,6 @@ function nextButtonHandler(event){
     //console.log(event);
     chooseRandomName();
     ChooseRandomCategory();
-    writeGameToDom();
 }
 
 /**
@@ -157,7 +156,8 @@ function blocksRepitition(){
     }
 }
 
-const Categories = [virusArray, challangeArray, imitationsArray, chooseOptionsArray];
+//const Categories = [virusArray, challangeArray, imitationsArray, chooseOptionsArray];
+const Categories = [challangeArray, chooseOptionsArray];
 let categoryIndex;
 /**
  * Function to choose random array + random index of array
@@ -167,12 +167,17 @@ function ChooseRandomCategory() {
     //console.log(selectedArray);
     categoryIndex = selectedArray[Math.floor(Math.random()* selectedArray.length)];
     //console.log(categoryIndex);
+    writeGameToDom(selectedArray);
 }
 
-function writeGameToDom(){
+function writeGameToDom(selectedArray){
     document.getElementById("gameDiv").innerHTML = " ";
     const p = document.createElement("p");
     const currentDiv = document.getElementById("gameDiv");
-    p.textContent = `${randomChosenName} ${categoryIndex}`;
+    if (selectedArray === chooseOptionsArray){
+        p.textContent = `${categoryIndex}`;
+    } else {
+        p.textContent = `${randomChosenName} ${categoryIndex}`;
+    }
     currentDiv.appendChild(p);
 }
